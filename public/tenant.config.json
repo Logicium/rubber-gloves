@@ -1,43 +1,202 @@
 {
-  "_note": "This file is overwritten by the Apotome provisioning service during site generation. Edit your live content from /admin.",
+  "_generated": "2026-08-18T23:02:58.249Z",
   "archetype": "marquee",
-  "brand": "Sample Event Space",
-  "tagline": "A place to gather & witness.",
-  "blurb": "An events-focused site — live music, art openings, festivals, or whatever you put on the calendar.",
-  "theme": "heritage",
-  "swatch": "ember",
+  "brand": "Rubber Gloves",
+  "tagline": "Gripping events. Unforgettable experiences.",
+  "blurb": "Rubber Gloves curates meticulously crafted live events, creating a pristine platform where artists shine and audiences connect through unforgettable nights of music, art, and laughter.",
+  "theme": "vibrant",
+  "swatch": "acid-light",
   "variant": "essentials",
   "contact": {
-    "address": "",
-    "phone": "",
-    "email": "",
+    "address": "123 Fake Street",
+    "phone": "9407651403",
+    "email": "zackleejohnston@gmail.com",
     "mapEmbedUrl": ""
   },
-  "hours": [],
-  "ticketingUrl": "",
-  "newsletterUrl": "",
-  "photos": {
-    "hero": { "src": "/photos/hero-marquee.jpg", "alt": "Front of the venue at night" },
-    "about": { "src": "/photos/about-space.jpg", "alt": "Inside the space" },
-    "gallery": []
-  },
   "story": {
-    "title": "Our story",
-    "paragraphs": [],
-    "facts": []
+    "title": "Our Story",
+    "paragraphs": [
+      "Here at Rubber Gloves, we're all about rolling up our sleeves and getting hands-on with good times. We're your local home for everything from pulse-pounding live music and uproarious comedy nights to captivating art exhibits and unique community gatherings. We believe in crafting memorable experiences that bring people together, fostering a space where every visit feels fresh and exciting. So whether you're here to discover a new band, share a laugh, or simply soak in the creative energy, you've found your spot.",
+      ""
+    ],
+    "facts": [
+      {
+        "label": "Founded",
+        "value": "2019"
+      },
+      {
+        "label": "Summoned",
+        "value": "2021"
+      },
+      {
+        "label": "",
+        "value": ""
+      }
+    ]
   },
+  "testimonials": [
+    {
+      "quote": "Amazing!",
+      "author": "Dave R. ",
+      "source": "Somewhere in CO"
+    },
+    {
+      "quote": "I need this everyday!",
+      "author": "Marty T.",
+      "source": "allegedly still there"
+    },
+    {
+      "quote": "I love Big Momma!",
+      "author": "Kevin B. ",
+      "source": "reformed"
+    }
+  ],
+  "social": [
+    {
+      "label": "Instagram",
+      "href": "https://www.instagram.com/choppermountain/"
+    },
+    {
+      "label": "Facebook",
+      "href": ""
+    }
+  ],
+  "hours": [
+    {
+      "day": "Monday - Thursday",
+      "open": "Closed"
+    },
+    {
+      "day": "Friday-Sunday",
+      "open": "4pm to 2am"
+    },
+    {
+      "day": "",
+      "open": ""
+    },
+    {
+      "day": "",
+      "open": ""
+    }
+  ],
+  "photos": {
+    "hero": {
+      "src": "/photos/hero.jpg",
+      "alt": "",
+      "caption": ""
+    },
+    "about": {
+      "src": "/photos/about.jpg",
+      "alt": "",
+      "caption": ""
+    },
+    "gallery": [
+      {
+        "src": "/photos/gallery-01.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "src": "/photos/gallery-02.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "src": "/photos/gallery-03.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "src": "/photos/gallery-04.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "src": "/photos/gallery-05.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "src": "/photos/gallery-06.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "src": "/photos/gallery-07.jpg",
+        "alt": "",
+        "caption": ""
+      },
+      {
+        "src": "/photos/gallery-08.jpg",
+        "alt": "",
+        "caption": ""
+      }
+    ]
+  },
+  "ticketingUrl": "www.ocelot-logistics.com",
   "venue": {
-    "capacity": "",
-    "ageRestrictions": "",
-    "parking": "",
+    "capacity": "55",
+    "ageRestrictions": "21 and up only",
+    "parking": "good luck",
     "accessibility": "",
     "foodAndDrink": "",
     "rentalUrl": "",
     "rentalBlurb": ""
   },
-  "events": [],
-  "series": [],
-  "performers": [],
-  "testimonials": [],
-  "social": []
+  "events": [
+    {
+      "id": "friday-freak-show",
+      "title": "Friday Freak Show",
+      "date": "2026-08-27",
+      "startTime": "",
+      "doorsTime": "",
+      "category": "Punk",
+      "priceLabel": "$12",
+      "ticketUrl": "",
+      "status": "",
+      "lineup": [],
+      "image": "/photos/event-1.jpg",
+      "imageAlt": "",
+      "blurb": "Prepare for the chaotic spectacle of Friday Freak Show, a night of unapologetic punk that will make you mosh, scream, and lose your mind.",
+      "description": "",
+      "ageRestriction": "",
+      "featured": false
+    },
+    {
+      "id": "",
+      "title": "",
+      "date": "",
+      "startTime": "",
+      "doorsTime": "",
+      "category": "",
+      "priceLabel": "",
+      "ticketUrl": "",
+      "status": "",
+      "lineup": [],
+      "image": "/photos/event-2.jpg",
+      "imageAlt": "",
+      "blurb": "",
+      "description": "",
+      "ageRestriction": "",
+      "featured": false
+    },
+    {
+      "id": "",
+      "title": "",
+      "date": "",
+      "startTime": "",
+      "doorsTime": "",
+      "category": "",
+      "priceLabel": "",
+      "ticketUrl": "",
+      "status": "",
+      "lineup": [],
+      "image": "/photos/event-3.jpg",
+      "imageAlt": "",
+      "blurb": "",
+      "description": "",
+      "ageRestriction": "",
+      "featured": false
+    }
+  ]
 }
