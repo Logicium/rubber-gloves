@@ -32,14 +32,14 @@ const reviewItems = computed(() =>
     :hero-image-alt="siteConfig.photos.hero.alt"
   />
   <EventsListSection
-    eyebrow="What's on"
-    title="Coming up"
+    :eyebrow="siteConfig.sections.events.eyebrow"
+    :title="siteConfig.sections.events.title"
     :events="siteConfig.events"
     :limit="isPortfolio ? 6 : 4"
     :venue-label="siteConfig.contact.address"
   />
   <AboutSection
-    eyebrow="About"
+    :eyebrow="siteConfig.sections.story.eyebrow"
     :title="siteConfig.story.title"
     :paragraphs="siteConfig.story.paragraphs"
     :facts="siteConfig.story.facts"
@@ -47,18 +47,19 @@ const reviewItems = computed(() =>
     :image-alt="siteConfig.photos.about.alt"
   />
   <SeriesSection
-    eyebrow="Every month"
-    title="Programs you can count on"
+    :eyebrow="siteConfig.sections.series.eyebrow"
+    :title="siteConfig.sections.series.title"
     :series="siteConfig.series"
   />
   <GallerySection
-    eyebrow="On stage"
+    :eyebrow="siteConfig.sections.gallery.eyebrow"
     :photos="siteConfig.photos.gallery"
     :limit="galleryLimit"
     :layout="isPortfolio ? 'masonry' : 'grid'"
   />
   <TestimonialsSection
-    eyebrow="What people say"
+    :eyebrow="siteConfig.sections.reviews.eyebrow"
+    :title="siteConfig.sections.reviews.title"
     :items="reviewItems"
   />
 </template>

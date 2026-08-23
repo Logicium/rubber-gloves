@@ -77,6 +77,23 @@ export interface MarqueeSiteConfig {
   ticketingUrl?: string
   newsletterUrl?: string
   social: Array<{ label: string; href: string }>
+  /** Editable section headers (eyebrows / titles / notes / CTA labels) so
+   *  owners control every heading on the site, not just body copy. */
+  sections: {
+    nav: { home: string; events: string; visit: string; tickets: string; lineup: string; gallery: string; ctaLabel: string }
+    hero: { nextShowLabel: string; ctaPrimary: string; ctaSecondary: string; emptyCtaPrimary: string; emptyCtaSecondary: string }
+    events: { eyebrow: string; title: string; allFilterLabel: string; emptyText: string }
+    story: { eyebrow: string }
+    series: { eyebrow: string; title: string }
+    gallery: { eyebrow: string }
+    reviews: { eyebrow: string; title: string }
+    eventsPage: { eyebrow: string; title: string; subtitle: string; calendarEyebrow: string; listTitle: string; seriesEyebrow: string; seriesTitle: string }
+    ticketsPage: { eyebrow: string; title: string; subtitle: string; ctaLabel: string; doorNote: string; listEyebrow: string; listTitle: string }
+    visitPage: { eyebrow: string; title: string; subtitle: string; venueEyebrow: string; venueTitle: string; hoursEyebrow: string; hoursTitle: string; contactEyebrow: string; contactTitle: string }
+    lineupPage: { eyebrow: string; title: string; subtitle: string }
+    galleryPage: { eyebrow: string; title: string }
+    contact: { eyebrow: string; title: string; intro: string }
+  }
 }
 
 export const siteConfig: MarqueeSiteConfig = reactive(({
@@ -284,4 +301,64 @@ export const siteConfig: MarqueeSiteConfig = reactive(({
     { label: 'Facebook', href: 'https://facebook.com' },
     { label: 'Spotify', href: 'https://spotify.com' },
   ],
+  sections: {
+    nav: { home: 'Home', events: 'Events', visit: 'Visit', tickets: 'Tickets', lineup: 'Lineup', gallery: 'Gallery', ctaLabel: 'Tickets' },
+    hero: {
+      nextShowLabel: 'Next on the marquee',
+      ctaPrimary: 'Get tickets',
+      ctaSecondary: 'All events',
+      emptyCtaPrimary: 'See upcoming events',
+      emptyCtaSecondary: 'Visit',
+    },
+    events: {
+      eyebrow: "What's on",
+      title: 'Coming up',
+      allFilterLabel: 'All',
+      emptyText: 'No upcoming events in this category \u2014 check back soon.',
+    },
+    story: { eyebrow: 'About' },
+    series: { eyebrow: 'Every month', title: 'Programs you can count on' },
+    gallery: { eyebrow: 'On stage' },
+    reviews: { eyebrow: 'What people say', title: 'What our guests say' },
+    eventsPage: {
+      eyebrow: 'Events',
+      title: 'Every show on the calendar',
+      subtitle: 'Tickets open the moment a show is announced. Sign up for our newsletter to hear about new dates first.',
+      calendarEyebrow: 'Month view',
+      listTitle: 'All upcoming events',
+      seriesEyebrow: 'Recurring',
+      seriesTitle: 'Programs that come back around',
+    },
+    ticketsPage: {
+      eyebrow: 'Tickets',
+      title: 'Get in',
+      subtitle: 'Most events ticket through our partner platform. For group requests, accessibility, or holds \u2014 reach out directly.',
+      ctaLabel: 'Get tickets',
+      doorNote: 'Tickets are also available at the door when capacity allows.',
+      listEyebrow: 'On sale now',
+      listTitle: 'Pick your night',
+    },
+    visitPage: {
+      eyebrow: 'Visit',
+      title: 'Plan your night out',
+      subtitle: 'The basics for getting here, getting in, and getting comfortable.',
+      venueEyebrow: 'The venue',
+      venueTitle: 'What to expect',
+      hoursEyebrow: 'Hours',
+      hoursTitle: 'When we\u2019re open',
+      contactEyebrow: 'Find us',
+      contactTitle: 'Get in touch',
+    },
+    lineupPage: {
+      eyebrow: 'Lineup',
+      title: 'Artists & company',
+      subtitle: 'The people who make this place go \u2014 residents, regulars, and the company behind the curtain.',
+    },
+    galleryPage: { eyebrow: 'Gallery', title: 'From past performances' },
+    contact: {
+      eyebrow: 'Get in touch',
+      title: 'Group sales, holds, or access requests',
+      intro: 'Tell us the event and how many spots; we\u2019ll get back within one business day.',
+    },
+  },
 }))

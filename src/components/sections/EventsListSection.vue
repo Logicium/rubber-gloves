@@ -4,7 +4,7 @@ import EventCard from './EventCard.vue'
 import type { EventItem } from '../../config/site.config'
 import { isPast } from '../../utils/eventDate'
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   eyebrow?: string
   title?: string
   intro?: string
@@ -16,7 +16,11 @@ const props = defineProps<{
   /** Max number of upcoming events to render (0 = unlimited). */
   limit?: number
   venueLabel?: string
-}>()
+  /** Filter chip for 'no category selected'. Owner-editable. */
+  allFilterLabel?: string
+  /** Shown when a category has no upcoming events. Owner-editable. */
+  emptyText?: string
+}>(), { title: 'Upcoming events', allFilterLabel: 'All', emptyText: 'No upcoming events in this category — check back soon.' })
 
 const upcoming = computed(() => props.events.filter(e => !isPast(e.date)).sort((a, b) => a.date.localeCompare(b.date)))
 const past = computed(() => props.events.filter(e => isPast(e.date)).sort((a, b) => b.date.localeCompare(a.date)))
@@ -41,7 +45,7 @@ const visible = computed(() => {
     <div class="ap-container">
       <header class="ap-section-head">
         <span v-if="eyebrow" class="ap-eyebrow">{{ eyebrow }}</span>
-        <h2>{{ title || 'Upcoming events' }}</h2>
+        <h2>{{ title }}</h2>
         <p v-if="intro" class="ap-events__intro">{{ intro }}</p>
       </header>
 
@@ -51,7 +55,7 @@ const visible = computed(() => {
           class="ap-events__chip"
           :class="{ 'is-active': activeCategory === null }"
           @click="activeCategory = null"
-        >All</button>
+        >{{ allFilterLabel }}</button>
         <button
           v-for="cat in categories"
           :key="cat"
@@ -62,7 +66,7 @@ const visible = computed(() => {
         >{{ cat }}</button>
       </div>
 
-      <p v-if="!visible.length" class="ap-events__empty">No upcoming events in this category — check back soon.</p>
+      <p v-if="!visible.length" class="ap-events__empty">{{ emptyText }}</p>
       <div class="ap-events__list">
         <EventCard
           v-for="event in visible"

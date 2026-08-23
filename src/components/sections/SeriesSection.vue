@@ -2,11 +2,11 @@
 import OptimizedImage from '@apotome/archetype-shared/components/OptimizedImage.vue'
 import type { EventSeries } from '../../config/site.config'
 
-defineProps<{
+withDefaults(defineProps<{
   eyebrow?: string
   title?: string
   series: EventSeries[]
-}>()
+}>(), { title: 'Recurring programs' })
 </script>
 
 <template>
@@ -14,7 +14,7 @@ defineProps<{
     <div class="ap-container">
       <header class="ap-section-head">
         <span v-if="eyebrow" class="ap-eyebrow">{{ eyebrow }}</span>
-        <h2>{{ title || 'Recurring programs' }}</h2>
+        <h2>{{ title }}</h2>
       </header>
       <ul class="ap-series__grid">
         <li v-for="s in series" :key="s.name" class="ap-series__card">
