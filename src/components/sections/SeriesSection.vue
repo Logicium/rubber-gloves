@@ -10,13 +10,13 @@ withDefaults(defineProps<{
 </script>
 
 <template>
-  <section class="ap-section ap-series">
+  <section class="ap-section ap-series" data-index>
     <div class="ap-container">
       <header class="ap-section-head">
         <span v-if="eyebrow" class="ap-eyebrow">{{ eyebrow }}</span>
-        <h2>{{ title }}</h2>
+        <h2 v-lines>{{ title }}</h2>
       </header>
-      <ul class="ap-series__grid">
+      <ul class="ap-series__grid" v-cascade="110">
         <li v-for="s in series" :key="s.name" class="ap-series__card">
           <div v-if="s.image" class="ap-series__media">
             <OptimizedImage :src="s.image" :alt="s.name" />

@@ -11,7 +11,10 @@ import NextShowHero from '../components/sections/NextShowHero.vue'
 import EventsListSection from '../components/sections/EventsListSection.vue'
 import SeriesSection from '../components/sections/SeriesSection.vue'
 
-const { variant: liveVariant } = useSiteTheme()
+const { variant: liveVariant, themeName } = useSiteTheme()
+/* Editorial themes list events as index rows; the rest keep photo cards. */
+const eventsLayout = computed(() => (themeName.value === 'studio' || themeName.value === 'atlas' ? 'index' : 'card'))
+const locale = computed(() => siteConfig.contact.address.split(',').slice(1, 3).map(s => s.trim()).join(', '))
 const galleryLimit = computed(() => VARIANT_PHOTO_COUNT[resolveVariant(liveVariant.value)].gallery)
 const isPortfolio = computed(() => variantAtLeast(liveVariant.value, 'portfolio'))
 const content = useSiteContentStore()
@@ -30,6 +33,13 @@ const reviewItems = computed(() =>
     :events="siteConfig.events"
     :hero-image="siteConfig.photos.hero.src"
     :hero-image-alt="siteConfig.photos.hero.alt"
+    :images="isPortfolio ? [siteConfig.photos.hero, ...siteConfig.photos.gallery.slice(0, 2)] : []"
+    :locale="locale"
+    :next-show-label="siteConfig.sections.hero.nextShowLabel"
+    :cta-primary="siteConfig.sections.hero.ctaPrimary"
+    :cta-secondary="siteConfig.sections.hero.ctaSecondary"
+    :empty-cta-primary="siteConfig.sections.hero.emptyCtaPrimary"
+    :empty-cta-secondary="siteConfig.sections.hero.emptyCtaSecondary"
   />
   <EventsListSection
     :eyebrow="siteConfig.sections.events.eyebrow"
@@ -37,6 +47,7 @@ const reviewItems = computed(() =>
     :events="siteConfig.events"
     :limit="isPortfolio ? 6 : 4"
     :venue-label="siteConfig.contact.address"
+    :layout="eventsLayout"
   />
   <AboutSection
     :eyebrow="siteConfig.sections.story.eyebrow"

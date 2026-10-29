@@ -96,14 +96,22 @@ export interface MarqueeSiteConfig {
   }
 }
 
+/** Demo dates are relative to today so the calendar is never empty. Real
+ *  sites publish absolute ISO dates through the admin. */
+function inDays(n: number): string {
+  const d = new Date()
+  d.setDate(d.getDate() + n)
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+}
+
 export const siteConfig: MarqueeSiteConfig = reactive(({
   brand: 'Cinder Hall',
   tagline: 'A room for whatever is next.',
   blurb:
     'A working arts hall in southern Colorado — gallery openings, live music, comedy, festivals, and the kind of nights you tell your friends about.',
-  theme: 'atlas',
-  swatch: 'signal-dark',
-  variant: 'essentials',
+  theme: 'studio',
+  swatch: 'onyx-dark',
+  variant: 'portfolio',
   contact: {
     address: '418 Main St, Trinidad, CO 81082',
     phone: '(719) 555-0142',
@@ -127,6 +135,16 @@ export const siteConfig: MarqueeSiteConfig = reactive(({
       { src: '/photos/show-04.jpg', alt: 'Family afternoon in the gallery' },
       { src: '/photos/show-05.jpg', alt: 'Painter at work during a gallery opening' },
       { src: '/photos/show-06.jpg', alt: 'String quartet rehearsing in the hall' },
+      { src: '/photos/show-07.jpg', alt: 'Stage lights over a full house' },
+      { src: '/photos/show-08.jpg', alt: 'Late set, jazz trio' },
+      { src: '/photos/show-09.jpg', alt: 'The house before doors' },
+      { src: '/photos/show-10.jpg', alt: 'Comedy night' },
+      { src: '/photos/show-11.jpg', alt: 'Opening night in the gallery' },
+      { src: '/photos/show-12.jpg', alt: 'Film series screening' },
+      { src: '/photos/show-13.jpg', alt: 'Songwriter in residence' },
+      { src: '/photos/show-14.jpg', alt: 'Festival weekend, main tent' },
+      { src: '/photos/show-15.jpg', alt: 'Touring dance company' },
+      { src: '/photos/show-16.jpg', alt: 'The 1924 brick front' },
     ],
   },
   story: {
@@ -155,7 +173,7 @@ export const siteConfig: MarqueeSiteConfig = reactive(({
     {
       id: 'rosalind-quartet',
       title: 'The Rosalind Quartet',
-      date: '2026-06-07',
+      date: inDays(9),
       startTime: '20:00',
       doorsTime: '19:00',
       category: 'Concert',
@@ -175,7 +193,7 @@ export const siteConfig: MarqueeSiteConfig = reactive(({
     {
       id: 'midnight-mariachi',
       title: 'Midnight Mariachi',
-      date: '2026-06-14',
+      date: inDays(16),
       startTime: '21:00',
       doorsTime: '20:00',
       category: 'Concert',
@@ -191,7 +209,7 @@ export const siteConfig: MarqueeSiteConfig = reactive(({
     {
       id: 'opening-rivera',
       title: 'Gallery Opening: Lucía Rivera — “Cinder Country”',
-      date: '2026-07-03',
+      date: inDays(23),
       startTime: '18:00',
       category: 'Exhibition',
       priceLabel: 'Free',
@@ -206,7 +224,7 @@ export const siteConfig: MarqueeSiteConfig = reactive(({
     {
       id: 'open-mic',
       title: 'Open Mic Monday',
-      date: '2026-07-06',
+      date: inDays(31),
       startTime: '19:00',
       doorsTime: '18:30',
       category: 'Comedy & Spoken Word',
@@ -219,7 +237,7 @@ export const siteConfig: MarqueeSiteConfig = reactive(({
     {
       id: 'high-plains-fest',
       title: 'High Plains Folk Festival',
-      date: '2026-08-15',
+      date: inDays(38),
       startTime: '12:00',
       category: 'Festival',
       priceLabel: 'Day pass $35 · weekend $65',
@@ -237,7 +255,7 @@ export const siteConfig: MarqueeSiteConfig = reactive(({
     {
       id: 'gala-2026',
       title: '12th Annual Cinder Gala',
-      date: '2026-09-19',
+      date: inDays(47),
       startTime: '18:30',
       category: 'Benefit',
       priceLabel: '$95 · table sponsorships from $1,200',

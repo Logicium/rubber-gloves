@@ -20,7 +20,9 @@ const props = withDefaults(defineProps<{
   allFilterLabel?: string
   /** Shown when a category has no upcoming events. Owner-editable. */
   emptyText?: string
-}>(), { title: 'Upcoming events', allFilterLabel: 'All', emptyText: 'No upcoming events in this category — check back soon.' })
+  /** 'card' rows with photos, or 'index' editorial rows with a hover preview. */
+  layout?: 'card' | 'index'
+}>(), { layout: 'card', title: 'Upcoming events', allFilterLabel: 'All', emptyText: 'No upcoming events in this category — check back soon.' })
 
 const upcoming = computed(() => props.events.filter(e => !isPast(e.date)).sort((a, b) => a.date.localeCompare(b.date)))
 const past = computed(() => props.events.filter(e => isPast(e.date)).sort((a, b) => b.date.localeCompare(a.date)))
@@ -41,11 +43,11 @@ const visible = computed(() => {
 </script>
 
 <template>
-  <section class="ap-section ap-events">
+  <section class="ap-section ap-events" data-index>
     <div class="ap-container">
       <header class="ap-section-head">
         <span v-if="eyebrow" class="ap-eyebrow">{{ eyebrow }}</span>
-        <h2>{{ title }}</h2>
+        <h2 v-lines>{{ title }}</h2>
         <p v-if="intro" class="ap-events__intro">{{ intro }}</p>
       </header>
 
@@ -67,12 +69,14 @@ const visible = computed(() => {
       </div>
 
       <p v-if="!visible.length" class="ap-events__empty">{{ emptyText }}</p>
-      <div class="ap-events__list">
+      <div class="ap-events__list" :class="`is-${layout}`" v-cascade="90">
         <EventCard
-          v-for="event in visible"
+          v-for="(event, i) in visible"
           :key="event.id"
           :event="event"
           :venue-label="venueLabel"
+          :layout="layout"
+          :index="i"
         />
       </div>
 
